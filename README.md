@@ -1,4 +1,7 @@
-# AttentionCompanionApp
+<h1 align="center">
+  <img src="https://github.com/user-attachments/assets/af75d83a-96f8-4d59-b2cb-6ae83e106d71" width="50" />
+  &nbsp; Attention Companion App
+</h1>
 
 AttentionCompanionApp is a Java desktop application that monitors a student’s study focus in real time using a normal webcam, computer vision, and attention-scoring logic. It shows a live attention graph, sends low-attention email alerts, and generates a manual PDF report at the end of the session.
 
@@ -153,11 +156,42 @@ Set:
 - sender email
 - app password
 - fallback recipient
+  
+in EmailService.java
 
-For Gmail:
-- SMTP host: `smtp.gmail.com`
-- Port: `587`
-- TLS: enabled
+### Gmail & App Password Setup Instructions
+
+⚠️ This project uses Gmail SMTP for sending attention alerts. You must configure your own Gmail account with an App Password for it to work.<br>
+
+Step 1: Enable 2-Factor Authentication (2FA)
+- Go to Google Account Security.
+- Under "Signing in to Google," enable 2-Step Verification.
+- Complete the 2FA setup (phone number, authenticator app, etc.).
+
+Step 2: Generate App Password
+- Go to Google App Passwords.
+- Select Mail as the app and Other (Custom name) as the device.
+- Enter a name like "AttentionCompanionApp" and click Generate.
+- Copy the 16-character app password (example: abcd efgh ijkl mnop).
+- You will not see it again.
+
+Step 3: Configure in the Application
+- In the app's email configuration:
+
+```text
+Sender Email: your-gmail@gmail.com
+App Password: abcd efgh ijkl mnop
+SMTP Host: smtp.gmail.com
+SMTP Port: 587
+```
+Step 4: Test Email
+- Click Test Email in the app. You should receive a test message at your Gmail address.
+
+Troubleshooting
+
+- "Authentication failed" → Double-check the app password (no spaces, exactly 16 characters).
+- "Connection refused" → Verify port 587 and TLS enabled.
+- "535-5.7.8 Username and Password not accepted" → 2FA not enabled or wrong app password.
 
 ### 4. Run the application
 Run the main Java class from your IDE or build tool.
@@ -202,6 +236,13 @@ application.properties
 secrets.properties
 ```
 
+## Results
+**Low Attention**
+<img width="960" height="540" alt="Low Attention" src="https://github.com/user-attachments/assets/f3decb45-eba9-45dd-9b4e-7455fc287089" /> <br>**Good Attention**
+<img width="960" height="540" alt="Good Attention" src="https://github.com/user-attachments/assets/6c9e06b9-1cfb-4fc3-8d5c-7715c9b3e02f" /> <br> 
+**Attention Report**<br>
+<img width="585" height="405" alt="Attention Report" src="https://github.com/user-attachments/assets/94c5c3c5-11be-4bc8-95a3-423ae97bde51" />
+
 ## Future Improvements
 
 - Facial landmarks for better drowsiness estimation
@@ -210,6 +251,7 @@ secrets.properties
 - Multi-user support
 - Smarter app classification
 - More accurate ML-based attention estimation
+- AI Based Application Grouping 
 
 ## Limitations
 
@@ -224,15 +266,3 @@ secrets.properties
 - OpenCV official Java documentation
 - JavaCV GitHub and API docs
 - JavaMail SMTP/TLS documentation
-
-## License
-
-Add your chosen license here, for example MIT License.
-
-## Authors
-
-- Member 1 – Computer Vision and Attention Logic
-- Member 2 – Core Java Architecture and UI
-- Member 3 – Email Alert System
-- Member 4 – PDF Reporting and Analytics
-- Member 5 – Testing, App Usage Tracking, and Documentation
