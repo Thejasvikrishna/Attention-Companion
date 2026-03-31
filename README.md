@@ -161,7 +161,7 @@ in EmailService.java
 
 ### Gmail & App Password Setup Instructions
 
-⚠️ This project uses Gmail SMTP for sending attention alerts. You must configure your own Gmail account with an App Password for it to work.<br>
+This project uses Gmail SMTP for sending attention alerts. You must configure your own Gmail account with an App Password for it to work.<br>
 
 Step 1: Enable 2-Factor Authentication (2FA)
 - Go to Google Account Security.
