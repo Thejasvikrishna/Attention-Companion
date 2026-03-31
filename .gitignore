@@ -1,0 +1,11 @@
+# IDE files
+.idea/
+*.iml
+out/
+
+# Maven wrapper
+.mvn/
+target/
+
+# Runtime output
+reports/
